@@ -13,6 +13,10 @@
     transform: translate(-50%, -50%) scale(1.2) !important;
   }
   
+  /* Set compact sidebar width equal to normal sidebar width */
+  :root {
+    --sidebar-width: 300px; /* Change this to match the default sidebar width */
+  }
   
   :root[zen-compact-mode="true"] #sidebar {
     width: var(--sidebar-width) !important;
@@ -52,16 +56,12 @@ findbar {
   right: 20px !important;
   z-index: 1000 !important;
   min-width: 780px !important;
-background: light-dark(
-  color-mix(in srgb, rgba(255, 255, 255, 0.59), var(--zen-primary-color) 15%),
-  color-mix(in srgb, rgba(0, 0, 0, 0.51), var(--zen-primary-color) 15%)) !important;
-
-
+  background: light-dark(rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.1)) !important;
   backdrop-filter: blur(5px) !important; /* Start with very little blur */
   border-radius: 13px !important;
   padding: 6px 10px !important;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.6) !important;
-  border: 2px solid light-dark(rgba(100, 100, 100, 1), rgba(0, 0, 0, 0.3)) !important;
+  border: 2px solid light-dark(rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0.3)) !important;
   display: flex !important;
   align-items: center !important;
   gap: 6px !important;

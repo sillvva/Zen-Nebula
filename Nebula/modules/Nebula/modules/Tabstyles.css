@@ -120,11 +120,10 @@
     &[selected="true"] .tab-background,
     &[visuallyselected="true"] .tab-background {
       background-color: light-dark(rgba(255, 255, 255, 0.55), rgba(0, 0, 0, 0.35)) !important;
-      box-shadow: 0 0px 3px rgba(0, 0, 0, 0.55) !important;
+      box-shadow: 0 0px 3px light-dark(rgba(255, 255, 255, 0.55),rgba(0, 0, 0, 0.55)) !important;
     }
   }
 /* ------------------------Gradient while hovering-------------------------------- */
-
 .tabbrowser-tab {
   position: relative;
   overflow: hidden;
@@ -134,21 +133,20 @@
 .tabbrowser-tab::before {
   content: "";
   position: absolute;
-  inset: 2px; /* Shrinks the effect area */
+  inset: 0.5px; /* Shrinks the effect area */
   background: linear-gradient(
-  45deg,
-  color-mix(in srgb, var(--zen-primary-color) 5%, black),  
-  color-mix(in srgb, var(--zen-primary-color) 30%, black),  
-  color-mix(in srgb, var(--zen-primary-color) 75%, black),  
-  color-mix(in srgb, var(--zen-primary-color) 100%, black), /* Peak highlight */
-  color-mix(in srgb, var(--zen-primary-color) 50%, black),  
-  color-mix(in srgb, var(--zen-primary-color) 15%, black)  
+    45deg,
+    #000000,
+    #222222,
+    #444444,
+    #ffffff, /* White highlight */
+    #222222,
+    #000000
   );
-
   background-size: 400% 400%;
   border-radius: 12px !important; /* Slightly smaller than tab */
   clip-path: inset(0 round 13px);
-  animation: tab-hover-gradient 13s linear infinite;
+  animation: tab-hover-gradient 6s linear infinite;
   animation-play-state: paused;
   opacity: 0;
   filter: blur(10px) brightness(1);
@@ -170,14 +168,17 @@
 /* Gradient animation keyframes */
 @keyframes tab-hover-gradient {
   0% { background-position: 0% 50%; }
-  100% { background-position: 400% 50%; }
+  25% { background-position: 50% 0%; }
+  50% { background-position: 100% 50%; }
+  75% { background-position: 50% 100%; }
+  100% { background-position: 0% 50%; }
 }
 #zen-essentials-container .tabbrowser-tab[selected]::before {
   opacity: 0 !important;
 }
 
 #zen-essentials-container .tabbrowser-tab[selected]:active::before {
-  opacity: 0 !important; /* Adjust if needed */
+  opacity: 0.5 !important; /* Adjust if needed */
 }
 
 .tabbrowser-tab::before {
@@ -186,7 +187,7 @@
 
 /* Smoother press effect */
 .tabbrowser-tab:active::before {
-  transform: scale(0.95, 0.95) !important;
+  transform: scale(0.96, 0.95) !important;
 }
 
 
@@ -196,56 +197,6 @@
 }
 
 /* ----------------------- Workspace buttons ------------------------- */
-#zen-workspaces-button {
-  border-radius: 8px !important;
-  background-color: light-dark(rgba(255,255,255,0.1), rgba(150,150,150,0.2)) !important;
-  box-shadow: 0 0 12px rgba(0,0,0,0.2) !important;
-  padding: 3px !important;
-  
-  .subviewbutton {
-    border-radius: 6.5px !important;
-    transition: background-color 0.2s ease, filter 0.3s ease, opacity 0.3s ease-out !important;
-    font-size: 16px !important;
-    filter: grayscale(0%) !important;
-    --toolbarbutton-hover-background: color-mix(in srgb, var(--zen-branding-bg-reverse) 10%, transparent 90%) !important;
-
-    &:hover {
-      background-color: light-dark(rgba(255,255,255,0.1), rgba(100,100,100,0.32)) !important;
-    }
-
-    &:hover > img, 
-    &:hover > svg {
-      opacity: 1 !important; /* Fade in the icon */
-    }
-
-    &:active {
-      background-color: var(--toolbarbutton-active-background) !important;
-    }
-
-    /* Selected (active) state with background animation */
-    &[active] {
-      background-color: light-dark(rgba(255,255,255,0.42), rgba(255,255,255,0.2)) !important;
-      box-shadow: 0 0 4px rgba(0,0,0,0.2) !important;
-      overflow: hidden !important;
-      position: relative;
-    }
-  }
-}
-#zen-workspaces-button {
-  container-type: initial !important;
-  width: auto !important;
-}
-
-/*-------------------------------------------------------------*/
-/*Animations while switching workspaces*/
-.zen-workspace-tabs-section {
-  opacity: 1;
-  filter: blur(0px);
-  transition: opacity 0.43s ease-out, filter 0.23s ease-out;
-}
-
-/* Apply blur & fade effect only when moving */
-.zen-workspace-tabs-section:not([active="true"]) {
-  opacity: 0;
-  filter: blur(15px);
+#zen-workspaces-button .subviewbutton {
+  font-size: 12px !important;
 }
