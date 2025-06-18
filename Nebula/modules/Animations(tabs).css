@@ -227,23 +227,23 @@
 }
 
 /* Previous animation*/
-.browserStack:has(
+/* .browserStack:has(
     #historySwipeAnimationPreviousArrow:not([style="translate: none;"])
   )
   browser {
   scale: 0.95 !important;
   transform: translateX(3%) !important;
-}
+} */
 
 /* Next animation*/
-.browserStack:has(
+/* .browserStack:has(
     #historySwipeAnimationNextArrow:not([style="translate: none;"])
   )
   browser {
   scale: 0.95 !important;
   transform: translateX(-3%) !important;
 
-}
+} */
 
 /* ctrl tab visuals and animations */
 #ctrlTab-panel {
