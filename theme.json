@@ -6,7 +6,7 @@
 	"description": "A beautiful theme made for Zen Browser :))",
 	"version": "3.0.3",
 	"createdAt": "2025-05-31",
-	"updatedAt": "2025-06-23",
+	"updatedAt": "2025-06-27",
 	"style": {
 		"chrome": "https://raw.githubusercontent.com/Sillvva/Sillvva-Nebula/main/userChrome.css",
 		"content": "https://raw.githubusercontent.com/Sillvva/Sillvva-Nebula/main/userContent.css"
